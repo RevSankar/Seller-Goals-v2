@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Goal Management App for Sellers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Charts for Gantt -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>Goal Management App for Sellers</header>
+  <nav>
+    <button id="nav-goals" class="active">Goals</button>
+    <button id="nav-dashboard">Dashboard</button>
+    <button id="nav-gantt">Gantt Chart</button>
+  </nav>
+  <main>
+    <!-- Goal Form -->
+    <section class="goal-form active" id="goalFormSection">
+      <h2 id="formTitle">Add New Goal</h2>
+      <form id="goalForm">
+        <div class="form-row">
+          <div class="form-col">
+            <label>Goal Name
+              <input type="text" id="goalName" required />
+            </label>
+          </div>
+          <div class="form-col">
+            <label>Owner
+              <input type="text" id="goalOwner" required />
+            </label>
+          </div>
+          <div class="form-col">
+            <label>Confidence (%)
+              <input type="number" id="goalConfidence" min="0" max="100" required />
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-col">
+            <label>Start Date
+              <input type="date" id="goalStartDate" required />
+            </label>
+          </div>
+          <div class="form-col">
+            <label>Target Date
+              <input type="date" id="goalTargetDate" required />
+            </label>
+          </div>
+          <div class="form-col">
+            <label>Revenue ($)
+              <input type="number" id="goalRevenue" min="0" step="0.01" />
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-col">
+            <label>Progress (%)
+              <input type="number" id="goalProgress" min="0" max="100" />
+            </label>
+          </div>
+          <div class="form-col">
+            <label>Barriers
+              <input type="text" id="goalBarriers" />
+            </label>
+          </div>
+          <div class="form-col">
+            <label>Comments
+              <textarea id="goalComments" rows="2"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-col">
+            <label>Description
+              <textarea id="goalDescription" rows="2"></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-col">
+            <label>Short Term Goals (comma separated)
+              <input type="text" id="goalShortTerms" placeholder="e.g. Call 10 customers, Demo product" />
+            </label>
+          </div>
+        </div>
+        <button type="submit" id="saveGoalBtn">Add Goal</button>
+        <button type="button" id="cancelEditBtn" style="display:none;background:#888;">Cancel</button>
+      </form>
+    </section>
+    <!-- Goal List -->
+    <section class="goal-list active" id="goalListSection">
+      <h2>All Goals</h2>
+      <div id="goalList"></div>
+    </section>
+    <!-- Dashboard -->
+    <section class="dashboard" id="dashboardSection">
+      <h2>Dashboard</h2>
+      <div class="dashboard-cards" id="dashboardCards"></div>
+    </section>
+    <!-- Gantt Chart -->
+    <section class="gantt-container" id="ganttSection">
+      <h2>Gantt Chart</h2>
+      <div id="ganttChart" style="width:100%; min-height:400px;"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
